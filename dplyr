@@ -1,0 +1,22 @@
+#instalação dos pacotes
+install.packages("readxl")
+install.packages("dplyr")
+
+
+#carregamento dos pacotes
+library(readxl)
+library(dplyr)
+
+#carregamento da tabela
+PopMun <- read_excel("C:/Users/lins_/Downloads/POP2022_Municipios.xls")
+View(PopMun)
+
+#resumo estatístico
+summary(PopMun)
+
+#Contagem de Municípios
+ContagemMun <- PopMun %>%
+group_by(`UF`) %>%
+   summarise(Mun = length(`MUNICIPIO`)) 
+
+View(ContagemMun)
